@@ -11,8 +11,20 @@ class EventoAdmin(admin.ModelAdmin):
 
 @admin.register(Escala)
 class EscalaAdmin(admin.ModelAdmin):
-    list_display = ['nome',
-                    'datas',
-                    'funcao',
-                    'evento'
-                    ]
+    list_display = [
+        'nome',
+        'datas',
+        'funcao',
+        'evento'
+    ]
+    list_filter = [
+        'funcao',
+        'evento',
+        'data',
+        'nome'
+    ]
+    search_fields = [
+        'nome',
+        'evento',
+        'funcao'
+    ]
