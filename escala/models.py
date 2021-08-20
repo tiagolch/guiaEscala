@@ -22,7 +22,7 @@ class Evento(models.Model):
 class Escala(models.Model):
     nome = models.ForeignKey(User, on_delete=models.DO_NOTHING, verbose_name='Responsavel')
     data = models.DateField()
-    funcao = models.ForeignKey(Funcao,on_delete=models.DO_NOTHING, verbose_name='Função')
+    funcao = models.ForeignKey(Funcao, on_delete=models.DO_NOTHING, verbose_name='Função')
     evento = models.ForeignKey(Evento, on_delete=models.DO_NOTHING, verbose_name='Evento')
     observacao = models.TextField(max_length=1000, blank=True, null=True)
 
