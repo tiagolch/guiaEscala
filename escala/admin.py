@@ -27,8 +27,3 @@ class EscalaAdmin(admin.ModelAdmin):
         'data',
         'nome'
     ]
-    search_fields = [
-        'nome',
-        'evento',
-        'funcao'
-    ]
