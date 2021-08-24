@@ -16,7 +16,7 @@ class EventoAdmin(admin.ModelAdmin):
 @admin.register(Escala)
 class EscalaAdmin(admin.ModelAdmin):
     list_display = [
-        'nome',
+        'get_nome',
         'datas',
         'funcao',
         'evento'

@@ -35,6 +35,9 @@ class Escala(models.Model):
     def get_evento(self):
         return f'{self.evento}'
 
+    def get_nome(self):
+        return f'{self.nome.first_name} {self.nome.last_name}'
+
     def datas(self):
         return self.data.strftime('%d/%m/%Y')
 
