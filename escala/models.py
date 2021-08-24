@@ -29,6 +29,12 @@ class Escala(models.Model):
     def __str__(self):
         return f'{self.nome}'
 
+    def get_funcao(self):
+        return f'{self.funcao}'
+
+    def get_evento(self):
+        return f'{self.evento}'
+
     def datas(self):
         return self.data.strftime('%d/%m/%Y')
 
