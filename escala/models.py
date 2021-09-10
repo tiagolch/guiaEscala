@@ -6,7 +6,7 @@ from ministerio.models import Funcao
 
 
 class Evento(models.Model):
-    nome_evento = models.CharField(max_length=50, verbose_name='Evento')
+    nome_evento = models.CharField(max_length=50, verbose_name='Evento', unique=True)
     ultima_alteracao = models.DateTimeField(auto_now=True, verbose_name='Ultima Alteração')
     observacao = models.TextField(max_length=250, blank=True, null=True,)
 

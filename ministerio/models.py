@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Funcao(models.Model):
-    funcao = models.CharField(max_length=50, verbose_name='Função')
+    funcao = models.CharField(max_length=50, verbose_name='Função', unique=True)
     ativo = models.BooleanField(default=True)
 
     def __str__(self):
@@ -13,7 +13,7 @@ class Funcao(models.Model):
 
 
 class Ministerio(models.Model):
-    nome = models.CharField(max_length=50, verbose_name='Ministério')
+    nome = models.CharField(max_length=50, verbose_name='Ministério', unique=True)
     funcao = models.ManyToManyField(Funcao, verbose_name='Função')
     ativo = models.BooleanField(default=True)
 
