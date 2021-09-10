@@ -37,7 +37,9 @@ class Escala(models.Model):
         return f'{self.evento}'
 
     def responsavel(self):
-        return f'{self.nome.first_name} {self.nome.last_name}'
+        if self.nome:
+            return f'{self.nome.first_name} {self.nome.last_name}'
+        return None
 
     def datas(self):
         return self.data.strftime('%d/%m/%Y')
