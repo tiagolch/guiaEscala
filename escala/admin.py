@@ -27,3 +27,8 @@ class EscalaAdmin(admin.ModelAdmin):
         'data',
         'nome'
     ]
+    autocomplete_fields = [
+        'nome',
+        'funcao',
+        'evento',
+    ]

@@ -17,3 +17,4 @@ class FuncaoAdmin(admin.ModelAdmin):
     list_editable = ['ativo']
     list_filter = ['ativo']
     search_fields = ['funcao']
+    # autocomplete_fields = ['funcao']
