@@ -1,3 +1,4 @@
+from django import urls
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
@@ -14,5 +15,6 @@ router.register(r'funcao', FuncaoViewSet, basename='Funcao')
 urlpatterns = [
     path('account/', include('account.urls')),
     path('admin/', admin.site.urls),
+    path('escala/', include('escala.urls')),
     path('api/', include(router.urls)),
 ]

@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect, get_object_or_404
+from django.contrib.auth.models import User
 from rest_framework import viewsets
 from .models import Escala, Evento
 from .serializers import EscalaSerializer, EventoSerializer
@@ -14,4 +15,11 @@ class EventoViewSet(viewsets.ModelViewSet):
     serializer_class = EventoSerializer
 
     
+def MinhaEscalaView(request):
+    usuario = get_object_or_404(User, pk=request.user.id)
+    resultado = Escala.objects.filter(user=usuario)
 
+    context = {
+        'escala': resultado,
+    }
+    return render(request, 'minhaescala.html', context)
