@@ -4,9 +4,10 @@ from .models import Evento, Escala
 
 @admin.register(Evento)
 class EventoAdmin(admin.ModelAdmin):
-    list_display = ['nome_evento',
-                    'getUltima_alteracao'
-                    ]
+    list_display = [
+        'nome_evento',
+        'getUltima_alteracao'
+    ]
     search_fields = [
         'nome_evento',
         'getUltima_alteracao',
