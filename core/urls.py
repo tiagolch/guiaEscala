@@ -12,6 +12,7 @@ router.register(r'ministerio', MinisterioViewSet, basename='Ministerio')
 router.register(r'funcao', FuncaoViewSet, basename='Funcao')
 
 urlpatterns = [
+    path('account/', include('account.urls')),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
 ]

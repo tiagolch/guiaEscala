@@ -1,0 +1,30 @@
+{%extends "../base.html"%}
+{% block title%}Login{%endblock%}
+
+{%block content%}
+<section class="container-fluid">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</section>
+<section class="container-fluid">
+    <div class="container-fluid col d-flex justify-content-center">
+        <div class="card border-dark mb-3" style="max-width: 18rem;">
+          <div class="card-header text-dark">Login</div>
+          <div class="card-body text-dark">
+                <form action="{%url 'login'%}" method="post">
+                    <div class="login-form">
+                            {%csrf_token%}
+                            {{form.as_p}}
+                            <input type="hidden" name="next" value="{{next}}"/>
+                            <button type="submit" class="btn btn-dark">Login</button>
+                    </div>
+                </form>
+          </div>
+        </div>
+    </div>
+</section>
+
+
+{%endblock%}
