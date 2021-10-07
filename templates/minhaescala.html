@@ -1,14 +1,17 @@
 {% extends './base.html' %}
 
-{% block title %} Minha Escala   {%endblock%}
+{% block title %} Minha Escala {%endblock%}
 
 
 {% block content %}
+
 <section class="container-fluid">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-9 text-center">  
-                <h1>Minha Escala</h1>
+            <div class="col-sm-12 text-center">
+                {% if user %}
+                <h1>Escala {{user | upper}} </h1>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -17,24 +20,22 @@
 <section class="container-fluid">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-9">                
-                <table class="table table-dark">
+            <div class="col-sm-12">
+                <table class="table table-dark text-center">
                     <thead>
                         <tr>
                             <th scope="col">DATA</th>
                             <th scope="col">EVENTO</th>
-                            <th scope="col">RESPONSAVEL</th>
                             <th scope="col">FUNÇÃO</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for i in escala %}
-                            <tr>
-                                <th scope="row">{{i.datas}}</th>
-                                <td>{{i.get_evento}}</td>
-                                <td>{{i.responsavel}}</td>
-                                <td>{{i.get_funcao}}</td>
-                            </tr>
+                        <tr>
+                            <th scope="row">{{i.datas}}</th>
+                            <td>{{i.get_evento}}</td>
+                            <td>{{i.get_funcao}}</td>
+                        </tr>
                         {% endfor %}
                     </tbody>
                 </table>
@@ -44,4 +45,3 @@
 </section>
 
 {% endblock %}
-
