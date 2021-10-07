@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render,redirect, get_object_or_404
-# from django.contrib.auth.models import User
+from datetime import date, timedelta
 from account.models import User
 from rest_framework import viewsets
 from .models import Escala, Evento
@@ -20,8 +20,9 @@ class EventoViewSet(viewsets.ModelViewSet):
 @login_required() 
 def MinhaEscalaView(request):
     usuario = get_object_or_404(User, pk=request.user.id)
+    hoje = date.today()
     if usuario:
-        resultado = Escala.objects.filter(nome=usuario)
+        resultado = Escala.objects.filter(nome=usuario, data__month=str(hoje.month))
 
         context = {
             'escala': resultado,
