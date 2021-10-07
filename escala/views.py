@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render,redirect, get_object_or_404
 # from django.contrib.auth.models import User
 from account.models import User
@@ -16,11 +17,13 @@ class EventoViewSet(viewsets.ModelViewSet):
     serializer_class = EventoSerializer
 
     
+@login_required() 
 def MinhaEscalaView(request):
     usuario = get_object_or_404(User, pk=request.user.id)
-    resultado = Escala.objects.filter(nome=usuario)
+    if usuario:
+        resultado = Escala.objects.filter(nome=usuario)
 
-    context = {
-        'escala': resultado,
-    }
-    return render(request, 'minhaescala.html', context)
+        context = {
+            'escala': resultado,
+        }
+        return render(request, 'minhaescala.html', context)
