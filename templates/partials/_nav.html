@@ -1,0 +1,22 @@
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    {% if user %}
+        <a class="navbar-brand" href="#">Ola {{user| upper}} </a>
+    {% endif %}
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+    <ul class="navbar-nav">
+    {% if user.is_authenticated %}
+        <li class="nav-item active"><a class="nav-link"  href="{% url 'admin:index' %}"><button type="submit" class="btn btn-outline-info btn-block container-fluid">Administração</button></a></li>
+        <li class="nav-item active"><a class="nav-link" href="{% url 'minhaescala' %}"><button type="submit" class="btn btn-outline-info btn-block container-fluid">Minha Escala</button></a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}"><button type="submit" class="btn btn-outline-danger  btn-block">Logout</button></a></li>
+    {%else%}
+        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+    {% endif %}
+    </ul>
+  </div>
+</nav>

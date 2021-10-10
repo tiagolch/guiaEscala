@@ -15,6 +15,6 @@ router.register(r'funcao', FuncaoViewSet, basename='Funcao')
 urlpatterns = [
     path('account/', include('account.urls')),
     path('admin/', admin.site.urls),
-    path('escala/', include('escala.urls')),
+    path('', include('escala.urls')),
     path('api/', include(router.urls)),
 ]
