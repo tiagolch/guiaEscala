@@ -28,3 +28,14 @@ def MinhaEscalaView(request):
             'escala': resultado,
         }
         return render(request, 'minhaescala.html', context)
+
+
+@login_required() 
+def EscalaView(request):
+    hoje = date.today()
+    resultado = Escala.objects.filter(data__month=str(hoje.month))
+
+    context = {
+        'escala': resultado,
+    }
+    return render(request, 'escala.html', context)
