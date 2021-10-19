@@ -1,5 +1,8 @@
+import django
 from django.contrib import admin
-from .models import Evento, Escala
+from django.contrib import auth
+from django.http import request
+from .models import Evento, Escala, MinhaEscala
 
 
 @admin.register(Evento)
@@ -33,3 +36,28 @@ class EscalaAdmin(admin.ModelAdmin):
         'funcao',
         'evento',
     ]
+
+
+@admin.register(MinhaEscala)
+class MinhaEscalaAdmin(admin.ModelAdmin):
+    list_display = [
+        'datas',
+        'funcao',
+        'evento'
+    ]
+    list_filter = [
+        'evento',
+        'data',
+    ]
+    autocomplete_fields = [
+        'nome',
+        'funcao',
+        'evento',
+    ]
+    ordering = ['data']
+
+    def get_queryset(self, request):
+        user = request.user
+        qs = super(MinhaEscalaAdmin, self).get_queryset(request)
+        qs = qs.filter(nome=user)
+        return qs

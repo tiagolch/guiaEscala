@@ -44,4 +44,14 @@ class Escala(models.Model):
     def datas(self):
         return self.data.strftime('%d/%m/%Y')
 
+    class Meta:
+        verbose_name = 'Escala Geral'
+        verbose_name_plural = 'Escala Geral'
+
+
+class MinhaEscala(Escala):
+    class Meta:
+        proxy = True
+        verbose_name_plural = 'Minha Escala'
+
 
