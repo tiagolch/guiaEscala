@@ -4,12 +4,18 @@
 
 
 {% block content %}
+<section class="container-fluid margin">
+    <form  method="GET" class="form-inline my-2 my-lg-0">{% csrf_token %}
+        <input class="form-control mr-sm-2 left" type="text" name="buscar" id="buscar" placeholder="Buscar por nome" aria-label="Search">
+        <button class="btn btn-outline-primary my-2 my-sm-0" id="btn-busca" type="submit">Buscar</button>
+    </form>
+</section>
 
 <section class="container-fluid">
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12 text-center">
-                <h1>Escala</h1>
+                <h1>Escala Geral</h1>
             </div>
         </div>
     </div>
