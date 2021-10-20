@@ -5,7 +5,7 @@ from ministerio.models import Funcao, Ministerio
 
 
 class User(AbstractUser):
-    ministerio = models.ForeignKey(Ministerio, on_delete=models.DO_NOTHING, null=True)
+    # ministerio = models.ForeignKey(Ministerio, on_delete=models.DO_NOTHING, null=True)
     funcao = models.ManyToManyField(Funcao)
 
 
